@@ -258,8 +258,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ejercicio-1-experimentar-con-mlp-paa-regresion">
-   Ejercicio 1 - Experimentar con MLP paa regresión
+  <a class="reference internal nav-link" href="#ejercicio-1-experimentar-con-mlp-para-regresion">
+   Ejercicio 1 - Experimentar con MLP para regresión
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -278,7 +278,9 @@
         
               <div>
                 
-  <a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab4/lab4_parte1.ipynb">
+  <div class="section" id="laboratorio-4-parte-1">
+<h1>Laboratorio 4 - Parte 1<a class="headerlink" href="#laboratorio-4-parte-1" title="Permalink to this headline">¶</a></h1>
+<a href="https://colab.research.google.com/github/jdariasl/ML_2020/blob/master/Labs/lab4/lab4_parte1.ipynb">
     <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 <p><strong>Recuerda que una vez abierto, Da clic en “Copiar en Drive”, de lo contrario no podras almacenar tu progreso</strong></p>
 <p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
@@ -299,8 +301,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="laboratorio-4-parte-1">
-<h1>Laboratorio 4 - Parte 1<a class="headerlink" href="#laboratorio-4-parte-1" title="Permalink to this headline">¶</a></h1>
 <p>Este ejercicio tiene como objetivo implementar una red neuronal artificial de tipo perceptrón multicapa (MLP) para resolver un problema de regresión. Usaremos la librería sklearn. Consulte todo lo relacionado con la definición de hiperparámetros, los métodos para el entrenamiento y la predicción de nuevas muestras en el siguiente enlace: http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html#sklearn.neural_network.MLPRegressor</p>
 <p>Para este ejercicio usaremos la base de datos sobre calidad del aire, que ha sido usada en laboratorios previos, pero en este caso trataremos de predecir dos variables en lugar de una, es decir, abordaremos <strong>un problema de múltiples salidas</strong>.</p>
 <div class="cell docutils container">
@@ -319,8 +319,8 @@
 </div>
 </div>
 <p>Para calcular los errores, vamos a explorar y usar la el <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">modulo de metricas den sklearn</a>. Podemos observar que el modulo tiene metricas para regresión y clasificación.</p>
-<div class="section" id="ejercicio-1-experimentar-con-mlp-paa-regresion">
-<h2>Ejercicio 1 - Experimentar con MLP paa regresión<a class="headerlink" href="#ejercicio-1-experimentar-con-mlp-paa-regresion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ejercicio-1-experimentar-con-mlp-para-regresion">
+<h2>Ejercicio 1 - Experimentar con MLP para regresión<a class="headerlink" href="#ejercicio-1-experimentar-con-mlp-para-regresion" title="Permalink to this headline">¶</a></h2>
 <p>Para porder implementar nuestra función, lo primero que debemos entender es la estrucutra de la red. Como mencionamos, vamos a solucionar un problema de multiples salidas. Estas salidas con valores continuos. Por lo tanto debemos garantizar que la capa de salida del nuestra red tenga la capacidad de modelar. este tipo de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

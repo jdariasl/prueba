@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>U1. INTRODUCCIÓN AL MACHINE LEARNING &#8212; 2020 Introducción al Machine Learning</title>
+    <title>U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS &#8212; 2020 Introducción al Machine Learning</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,8 +56,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introducción al Machine Learning" href="Clase 01 - Introducción al Machine Learning.html" />
-    <link rel="prev" title="Course information" href="../intro.html" />
+    <link rel="next" title="Selección de Características" href="Clase 16 - Selección de Características.html" />
+    <link rel="prev" title="Máquinas de Soporte Vectorial" href="Clase 15 - Máquinas de Véctores de Soporte.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,46 +98,10 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="U1_description.html">
    U1. INTRODUCCIÓN AL MACHINE LEARNING
   </a>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 01 - Introducción al Machine Learning.html">
-     Introducción al Machine Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 01 - Introducción al Machine Learning.html#modelos-a-partir-de-datos">
-     Modelos a partir de datos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 01 - Introducción al Machine Learning.html#tipos-de-problemas-supervisados">
-     Tipos de problemas supervisados
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 02 - Regresión lineal y regresión logística.html">
-     <font color="blue">
-      Modelos básicos de aprendizaje
-     </font>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 02 - Regresión lineal y regresión logística.html#font-color-blue-pensemos-ahora-en-el-problema-de-clasificacion-font">
-     <font color="blue">
-      Pensemos ahora en el problema de clasificación
-     </font>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Clase 03 - Funciones discriminantes Gausianas.html">
-     Modelos de clasificación empleando funciones de densidad Gausianas
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="U1_IntroLabs.html">
@@ -174,10 +138,37 @@
    U7. MÁQUINAS DE VECTORES DE SOPORTE
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="U8_description.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase 16 - Selección de Características.html">
+     Selección de Características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase 17 - Lasso y redes elásticas.html">
+     LASSO (Least Absolute Shrinkage and Selection Operator)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase 17 - Lasso y redes elásticas.html#elastic-nets">
+     Elastic Nets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase 18 - Análisis de Componentes Principales.html">
+     Reducción de dimensión: Análisis de Componentes Principales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Clase 19 - Análisis Discriminante de Fisher.html">
+     Reducción de dimensión: Análisis Discriminante de Fisher
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -221,7 +212,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/U1_description.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/U8_description.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -252,8 +243,8 @@
         
               <div>
                 
-  <div class="section" id="u1-introduccion-al-machine-learning">
-<h1>U1. INTRODUCCIÓN AL MACHINE LEARNING<a class="headerlink" href="#u1-introduccion-al-machine-learning" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="u8-seleccion-extraccion-de-caracteristicas">
+<h1>U8. SELECCIÓN EXTRACCIÓN DE CARACTERÍSTICAS<a class="headerlink" href="#u8-seleccion-extraccion-de-caracteristicas" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -286,8 +277,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Course information</a>
-    <a class='right-next' id="next-link" href="Clase 01 - Introducción al Machine Learning.html" title="next page">Introducción al Machine Learning</a>
+    <a class='left-prev' id="prev-link" href="Clase 15 - Máquinas de Véctores de Soporte.html" title="previous page">Máquinas de Soporte Vectorial</a>
+    <a class='right-next' id="next-link" href="Clase 16 - Selección de Características.html" title="next page">Selección de Características</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

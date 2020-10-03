@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Laboratorio 5 - Parte 2 &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/fudea.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Labs/lab5/lab5_parte2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/content/Labs/lab5/lab5_parte2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maquinas-de-vectores-de-soporte">
+   Máquinas de Vectores de Soporte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ii">
+   2019-II
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#profesor-julian-d-arias-londono">
+     Profesor: Julián D. Arias Londoño
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#julian-ariasl-udea-edu-co">
+     julian.ariasl@udea.edu.co
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guia-del-laboratorio">
+   Guía del laboratorio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#primer-integrante">
+     Primer Integrante:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#segundo-integrante">
+     Segundo Integrante:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-limipiar-base-de-datos-y-completar-codigo">
+   Ejercicio 1: Limipiar base de datos y completar código
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limipiar-base-de-datos">
+     Limipiar base de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-el-codigo">
+     Complete el código
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-experimentos">
+   Ejercicio 2: Experimentos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-3-completar-preguntas">
+   Ejercicio 3: Completar preguntas
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="laboratorio-5-parte-2">
+<h1>Laboratorio 5 - Parte 2<a class="headerlink" href="#laboratorio-5-parte-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="maquinas-de-vectores-de-soporte">
+<h2>Máquinas de Vectores de Soporte<a class="headerlink" href="#maquinas-de-vectores-de-soporte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ii">
+<h2>2019-II<a class="headerlink" href="#ii" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profesor-julian-d-arias-londono">
+<h3>Profesor: Julián D. Arias Londoño<a class="headerlink" href="#profesor-julian-d-arias-londono" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="julian-ariasl-udea-edu-co">
+<h3>julian.ariasl&#64;udea.edu.co<a class="headerlink" href="#julian-ariasl-udea-edu-co" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="guia-del-laboratorio">
+<h2>Guía del laboratorio<a class="headerlink" href="#guia-del-laboratorio" title="Permalink to this headline">¶</a></h2>
+<p>En esta archivo va a encontrar tanto celdas de código cómo celdas de texto con las instrucciones para desarrollar el laboratorio.</p>
+<p>Lea atentamente las instrucciones entregadas en las celdas de texto correspondientes y proceda con la solución de las preguntas planteadas.</p>
+<p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
+<div class="section" id="primer-integrante">
+<h3>Primer Integrante:<a class="headerlink" href="#primer-integrante" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="segundo-integrante">
+<h3>Segundo Integrante:<a class="headerlink" href="#segundo-integrante" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#Algunas advertencias que queremos evitar</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;always&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1-limipiar-base-de-datos-y-completar-codigo">
+<h2>Ejercicio 1: Limipiar base de datos y completar código<a class="headerlink" href="#ejercicio-1-limipiar-base-de-datos-y-completar-codigo" title="Permalink to this headline">¶</a></h2>
+<p>En este ejercicio usaremos la regresión por vectores de soporte para resolver el problema de regresión de la base de datos AirQuality (https://archive.ics.uci.edu/ml/datasets/Air+Quality).</p>
+<div class="section" id="limipiar-base-de-datos">
+<h3>Limipiar base de datos<a class="headerlink" href="#limipiar-base-de-datos" title="Permalink to this headline">¶</a></h3>
+<p>La siguiente celda de código limpia la base de datos de todos sus datos faltantes y la deja lista en la variable DataBase.</p>
+<ol class="simple">
+<li><p><strong>Cargar</strong> la base de datos</p></li>
+<li><p><strong>Quitar</strong> todos registros de la base de datos que son perdidos y están marcados como -200, es decir, donde haya un valor -200 eliminaremos el registro.</p></li>
+<li><p>Ya hemos eliminado los registros con valor de la variable de salida perdido. Ahora vamos a <strong>imputar los valores perdidos</strong> en cada una de las características.</p></li>
+<li><p><strong>Verificar</strong> si quedaron valores faltante</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Paso 1: Cargar</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;BDatos/AirQuality.data&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Assuming tab-delimiter</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dim de la base de datos original: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">db</span><span class="p">)))</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">9357</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="n">DataBase</span> <span class="o">=</span> <span class="n">db</span>
+
+<span class="c1">#Paso 2: Quitar</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mi">200</span> <span class="o">==</span> <span class="n">db</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">12</span><span class="p">]:</span>
+        <span class="c1">#print i</span>
+        <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">DataBase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">DataBase</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hay &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; valores perdidos en la variable de salida.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dim de la base de datos sin las muestras con variable de salida perdido &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">DataBase</span><span class="p">)))</span>
+
+
+<span class="c1">##Paso 3: Imputar</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Procesando imputación de valores perdidos en las características . . .</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">DataBase</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mi">200</span> <span class="o">==</span> <span class="n">DataBase</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">w</span><span class="p">]:</span>
+            <span class="n">DataBase</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">DataBase</span><span class="p">[:,</span><span class="n">w</span><span class="p">]))</span> <span class="c1">## Se imputa con la media de toda la caracteristicas</span>
+        
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Imputación finalizada.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1">##Paso 4: Verificar</span>
+
+<span class="n">hay_missed_values</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">DataBase</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mi">200</span> <span class="ow">in</span> <span class="n">DataBase</span><span class="p">[</span><span class="n">i</span><span class="p">,:]:</span>
+        <span class="n">hay_missed_values</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span><span class="p">(</span><span class="n">hay_missed_values</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hay valores perdidos&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;No hay valores perdidos en la base de datos. Ahora se puede procesar. La base de datos está en la variable DataBase&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dim de la base de datos original: (9357, 13)
+
+Hay 366 valores perdidos en la variable de salida.
+
+Dim de la base de datos sin las muestras con variable de salida perdido (8991, 13)
+
+Procesando imputación de valores perdidos en las características . . .
+
+Imputación finalizada.
+
+No hay valores perdidos en la base de datos. Ahora se puede procesar. La base de datos está en la variable DataBase
+</pre></div>
+</div>
+</div>
+</div>
+<p>Base de datos final</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">DataBase</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">DataBase</span><span class="p">[:,</span><span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos la función Mean Absolute Percentage Error para los problemas de regresión</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MAPE</span><span class="p">(</span><span class="n">Y_est</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="c1">#Remueve los elementos que son cero en la variable deseada</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">Y_est</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)))</span><span class="o">/</span><span class="n">N</span>
+    <span class="k">return</span> <span class="n">mape</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="complete-el-codigo">
+<h3>Complete el código<a class="headerlink" href="#complete-el-codigo" title="Permalink to this headline">¶</a></h3>
+<p>A continuación complete el siguiente código para crear el modelo vectores de soporte(SVM) para regresión usando la librería sklearn.
+https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html. Implementar la metodología cross-validation con 5 folds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">tiempo_i</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1">#Complete el código para crear el modelo SVM para regresión. </span>
+<span class="c1">#Use un kernel rbf con una malla de valores así: C en {0.1, 100} y gamma en {0.0001, 0.1}</span>
+<span class="c1">#clf = ...</span>
+
+
+<span class="n">Folds</span> <span class="o">=</span> 
+<span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Folds</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">Folds</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>  
+       
+    <span class="c1">#Complete el código</span>
+    
+    
+    
+    <span class="c1"># Entrenar el modelo</span>
+    <span class="c1">#modelo = ...</span>
+    
+    
+    <span class="c1"># Validación del modelo</span>
+    <span class="c1">#ypred = ...</span>
+ 
+    <span class="n">Errores</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAPE</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Error de validación: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Errores</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; +/- &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Errores</span><span class="p">)))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Tiempo total de ejecución: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">tiempo_i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2-experimentos">
+<h2>Ejercicio 2: Experimentos<a class="headerlink" href="#ejercicio-2-experimentos" title="Permalink to this headline">¶</a></h2>
+<p>Una vez complete el código, realice las simulaciones necesarias para llenar la tabla siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">qgrid</span>
+<span class="n">df_types</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Kernel&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;lineal&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]),</span>
+    <span class="s1">&#39;gamma&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">])})</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;MAPE Promedio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Intervalo de confianza&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">e Vectores de Soporte&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Kernel&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;gamma&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;MAPE Promedio&quot;</span><span class="p">][</span><span class="mi">23</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0.2259&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Intervalo de confianza&quot;</span><span class="p">][</span><span class="mi">23</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0.1109&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">e Vectores de Soporte&quot;</span><span class="p">][</span><span class="mi">23</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0.2191&quot;</span>
+<span class="c1">#df_types.sort_index(inplace=True)</span>
+<span class="n">qgrid_widget</span> <span class="o">=</span> <span class="n">qgrid</span><span class="o">.</span><span class="n">show_grid</span><span class="p">(</span><span class="n">df_types</span><span class="p">,</span> <span class="n">show_toolbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">qgrid_widget</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a93f3e54b1b24ca3874586ee0d90883e", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>Ejecute la siguiente instrucción para dejar guardados en el notebook los resultados de las pruebas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qgrid_widget</span><span class="o">.</span><span class="n">get_changed_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>MAPE Promedio</th>
+      <th>Intervalo de confianza</th>
+      <th>% de Vectores de Soporte</th>
+    </tr>
+    <tr>
+      <th>Kernel</th>
+      <th>C</th>
+      <th>gamma</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">lineal</th>
+      <th>0.001</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.010</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.100</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.000</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10.000</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>100.000</th>
+      <th>0.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="18" valign="top">rbf</th>
+      <th rowspan="3" valign="top">0.001</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">0.010</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">0.100</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">1.000</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">10.000</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">100.000</th>
+      <th>0.01</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0.10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1.00</th>
+      <td>0.2259</td>
+      <td>0.1109</td>
+      <td>0.2191</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="ejercicio-3-completar-preguntas">
+<h2>Ejercicio 3: Completar preguntas<a class="headerlink" href="#ejercicio-3-completar-preguntas" title="Permalink to this headline">¶</a></h2>
+<p>3.1 ¿Cuál es la finalidad de usar las funciones kernel en el modelo SVM?</p>
+<p>R/:</p>
+<p>3.2 ¿En este caso el porcentaje de vectores de soporte provee una información similar que en el problema de clasificación? Explique su respuesta.</p>
+<p>R/:</p>
+<p>3.3 Realice una gráfica de las salidas reales vs las predicciones del modelo SVM, para evaluar visualmente el desempeño del mismo. Esto solo para la configuración en la cuál se encontró el menor error.</p>
+<p>Complete el código para hacer la gráfica aquí</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Labs/lab5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

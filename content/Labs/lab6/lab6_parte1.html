@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Laboratorio 6 Parte 1 &#8212; 2020 Introducción al Machine Learning</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/fudea.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2020 Introducción al Machine Learning</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Course information
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../U1_description.html">
+   U1. INTRODUCCIÓN AL MACHINE LEARNING
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Labs/lab6/lab6_parte1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jdariasl/prueba/blob/master/content/Labs/lab6/lab6_parte1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduccion-de-dimension-seleccion-de-caracteristicas">
+   Reducción de dimensión: Selección de características
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ii">
+   2019-II
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#profesor-julian-d-arias-londono">
+     Profesor: Julián D. Arias Londoño
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#julian-ariasl-udea-edu-co">
+     julian.ariasl@udea.edu.co
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primer-integrante">
+   Primer integrante:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#segundo-integrante">
+     Segundo integrante:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guia-del-laboratorio">
+   Guía del laboratorio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indicaciones">
+   Indicaciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-entrenamiento-sin-seleccion-de-caracteristicas">
+   Ejercicio 1: Entrenamiento sin selección de características
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-entrenamiento-con-seleccion-de-caracteristicas">
+   Ejercicio 2: Entrenamiento con selección de características
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-3">
+   Ejercicio 3
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="laboratorio-6-parte-1">
+<h1>Laboratorio 6 Parte 1<a class="headerlink" href="#laboratorio-6-parte-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reduccion-de-dimension-seleccion-de-caracteristicas">
+<h2>Reducción de dimensión: Selección de características<a class="headerlink" href="#reduccion-de-dimension-seleccion-de-caracteristicas" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ii">
+<h2>2019-II<a class="headerlink" href="#ii" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profesor-julian-d-arias-londono">
+<h3>Profesor: Julián D. Arias Londoño<a class="headerlink" href="#profesor-julian-d-arias-londono" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="julian-ariasl-udea-edu-co">
+<h3>julian.ariasl&#64;udea.edu.co<a class="headerlink" href="#julian-ariasl-udea-edu-co" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="primer-integrante">
+<h2>Primer integrante:<a class="headerlink" href="#primer-integrante" title="Permalink to this headline">¶</a></h2>
+<p>Nombre:</p>
+<div class="section" id="segundo-integrante">
+<h3>Segundo integrante:<a class="headerlink" href="#segundo-integrante" title="Permalink to this headline">¶</a></h3>
+<p>Nombre:</p>
+</div>
+</div>
+<div class="section" id="guia-del-laboratorio">
+<h2>Guía del laboratorio<a class="headerlink" href="#guia-del-laboratorio" title="Permalink to this headline">¶</a></h2>
+<p>En esta archivo va a encontrar tanto celdas de código cómo celdas de texto con las instrucciones para desarrollar el laboratorio.</p>
+<p>Lea atentamente las instrucciones entregadas en las celdas de texto correspondientes y proceda con la solución de las preguntas planteadas.</p>
+<p>Nota: no olvide ir ejecutando las celdas de código de arriba hacia abajo para que no tenga errores de importación de librerías o por falta de definición de variables.</p>
+</div>
+<div class="section" id="indicaciones">
+<h2>Indicaciones<a class="headerlink" href="#indicaciones" title="Permalink to this headline">¶</a></h2>
+<p>Este ejercicio tiene como objetivo implementar varias técnicas de selección de características y usar SVM para resolver un problema de clasificación multiclase.</p>
+<p>Antes de iniciar a ejecutar las celdas, debe instalar la librería mlxtend que usaremos para los laboratorios de reducción de dimensión.
+Para hacerlo solo tiene que usar el siguiente comando:
+<code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">mlxtend</span></code>
+También puede consultar la guía oficial de instalación
+de esta librería: https://rasbt.github.io/mlxtend/installation/</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">mlxtend.feature_selection</span> <span class="kn">import</span> <span class="n">SequentialFeatureSelector</span> <span class="k">as</span> <span class="n">SFS</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para el problema de clasificación usaremos la siguiente base de datos: https://archive.ics.uci.edu/ml/datasets/Cardiotocography</p>
+<p>Analice la base de datos, sus características, su variable de salida y el contexto del problema.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cargamos la bd de entrenamiento</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;DB/DB_Fetal_Cardiotocograms.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Assuming tab-delimiter</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">db</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">22</span><span class="p">]</span>
+
+<span class="c1">#Solo para dar formato a algunas variables</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">db</span><span class="p">[:,</span><span class="mi">22</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dimensiones de la base de datos de entrenamiento. dim de X: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">dim de Y: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Y</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1-entrenamiento-sin-seleccion-de-caracteristicas">
+<h2>Ejercicio 1: Entrenamiento sin selección de características<a class="headerlink" href="#ejercicio-1-entrenamiento-sin-seleccion-de-caracteristicas" title="Permalink to this headline">¶</a></h2>
+<p>En la siguiente celda de código no tiene que completar nada. Analice, comprenda y ejecute el código y tenga en cuenta los resultados para completar la tabla que se le pide más abajo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_error</span><span class="p">(</span><span class="n">y_est</span><span class="p">,</span> <span class="n">y_real</span><span class="p">):</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">y_e</span><span class="p">,</span> <span class="n">y_r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_est</span><span class="p">,</span> <span class="n">y_real</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">y_e</span> <span class="o">!=</span> <span class="n">y_r</span><span class="p">:</span>
+            <span class="n">err</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">err</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">y_est</span><span class="p">)</span>
+
+<span class="c1">#Para calcular el costo computacional</span>
+<span class="n">tiempo_i</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1">#Creamos el clasificador SVM. Tenga en cuenta que el problema es multiclase. </span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">decision_function_shape</span><span class="o">=</span><span class="s1">&#39;ovr&#39;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="c1">#Implemetamos la metodología de validación</span>
+
+<span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>  
+
+    <span class="c1">#Aquí se entran y se valida el modelo sin hacer selección de características</span>
+    
+    <span class="c1">######</span>
+    
+    <span class="c1"># Entrenamiento el modelo.</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># Validación del modelo</span>
+    <span class="n">ypred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    
+    <span class="c1">#######</span>
+
+    <span class="n">Errores</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">classification_error</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Error de validación sin aplicar SFS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Errores</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; +/- &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Errores</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">((</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Tiempo total de ejecución: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">tiempo_i</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; segundos.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1.1 Describa la metodología de validación que se está aplicando.</p>
+<p>R/:</p>
+<p>1.2 ¿Con qué modelo se está resolviendo el problema planteado? ¿Cuáles son los parámetros establecidos para el modelo?</p>
+<p>R/:</p>
+</div>
+<div class="section" id="ejercicio-2-entrenamiento-con-seleccion-de-caracteristicas">
+<h2>Ejercicio 2: Entrenamiento con selección de características<a class="headerlink" href="#ejercicio-2-entrenamiento-con-seleccion-de-caracteristicas" title="Permalink to this headline">¶</a></h2>
+<p>En la siguiente celda, complete el código donde le sea indicado. Consulte la documentación oficial de la librería mlxtend para los métodos de selección de características. https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/#sequential-feature-selector</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Recibe 4 parámetros: </span>
+<span class="sd">1. el modelo (clf para nuestro caso), </span>
+<span class="sd">2. el número de características final que se quiere alcanzar</span>
+<span class="sd">3. Si es forward (True), si es Backward False,</span>
+<span class="sd">4. Si es es flotante (True), sino False</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">select_features</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">fwd</span><span class="p">,</span> <span class="n">fltg</span><span class="p">):</span>
+
+    
+    <span class="n">sfs</span> <span class="o">=</span> <span class="n">SFS</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> 
+           <span class="n">k_features</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> 
+           <span class="n">forward</span><span class="o">=</span><span class="n">fwd</span><span class="p">,</span>
+           <span class="n">floating</span><span class="o">=</span><span class="n">fltg</span><span class="p">,</span>
+           <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+           <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+           <span class="n">cv</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">sfs</span>
+
+
+<span class="c1">#Para calcular el costo computacional</span>
+<span class="n">tiempo_i</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1">#Implemetamos la metodología de validación </span>
+
+<span class="n">Errores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>  
+   
+    <span class="c1">#Aquí se entrena y se valida el modelo haciendo selección de características con diferentes estrategias</span>
+    
+    <span class="c1">#Complete el código llamando el método select_features con los parámetros correspondientes para responder el</span>
+    <span class="c1">#Ejercicio 3.1</span>
+    <span class="n">sf</span> <span class="o">=</span> <span class="c1">#Complete el código aquí</span>
+
+    <span class="c1">#Complete el código para entrenar el modelo con las características seleccionadas. Tenga en cuenta</span>
+    <span class="c1">#la metodología de validación aplicada para que pase las muestras de entrenamiento correctamente.</span>
+    <span class="n">sf</span> <span class="o">=</span> <span class="c1">#Complete el código aquí</span>
+    
+    <span class="n">Errores</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">sf</span><span class="o">.</span><span class="n">k_score_</span>
+    <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Error de validación aplicando SFS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Errores</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; +/- &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Errores</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Eficiencia en validación aplicando SFS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">k_score_</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span> <span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Tiempo total de ejecución: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">tiempo_i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3">
+<h2>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permalink to this headline">¶</a></h2>
+<p>3.1 En la celda de código anterior, varíe los parámetros correspondientes al número de características a seleccionar (use 3, 7 y 10) y la estrategia a implementar (SFS, SBS, SFFS, SBFS), para que complete la siguiente tabla de resultados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">qgrid</span>
+<span class="n">df_types</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Tecnica&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;SVM sin selección&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SFFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBFS&#39;</span><span class="p">,</span><span class="s1">&#39;SVM + SBFS&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;# de características seleccionadas&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span>
+   <span class="p">})</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Error de validación&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;IC(std)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Eficiencia&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Tiempo de ejecución&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="n">df_types</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Tecnica&#39;</span><span class="p">,</span><span class="s1">&#39;# de características seleccionadas&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Error de validación&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0.019&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;IC(std)&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0.002&quot;</span>
+<span class="n">df_types</span><span class="p">[</span><span class="s2">&quot;Tiempo de ejecución&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;107.9 s&quot;</span>
+
+<span class="c1">#df_types.sort_index(inplace=True)</span>
+<span class="n">qgrid_widget</span> <span class="o">=</span> <span class="n">qgrid</span><span class="o">.</span><span class="n">show_grid</span><span class="p">(</span><span class="n">df_types</span><span class="p">,</span> <span class="n">show_toolbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">qgrid_widget</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "67e78fcdb1a04cd1925a85f72fb88fb9", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qgrid_widget</span><span class="o">.</span><span class="n">get_changed_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Error de validación</th>
+      <th>IC(std)</th>
+      <th>Eficiencia</th>
+      <th>Tiempo de ejecución</th>
+    </tr>
+    <tr>
+      <th>Tecnica</th>
+      <th># de características seleccionadas</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVM sin selección</th>
+      <th>22</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">SVM + SFS</th>
+      <th>3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">SVM + SBS</th>
+      <th>3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">SVM + SFFS</th>
+      <th>3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.019</td>
+      <td>0.002</td>
+      <td></td>
+      <td>107.9 s</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">SVM + SBFS</th>
+      <th>3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>3.2 Según la teoría vista en el curso, se está usando una función tipo filtro o tipo wrapper y cuál es?</p>
+<p>R/:</p>
+<p>3.3 Con los resultados de la tabla anterior haga un análisis de cuál es el mejor resultado teniendo en cuenta tanto la eficiencia en la clasificación como el costo computacional del modelo y la estrategia implementada.</p>
+<p>R/:</p>
+<p>3.4 Haga uso del atributo sf.k_feature_idx_ (deje evidencia del código usado para esto) para identificar cuáles fueron las características seleccionadas en el mejor de los resultados encontrados. No presente los indices de las características sino sus nombres y descripción.</p>
+<p>R/:</p>
+<p>3.5 De acuerdo a los resultados encontrados y la respuesta anterior, usted como ingeniero de datos que le puede sugerir a un médico que esté trabajando en un caso enmarcado dentro del contexto de la base de datos trabajada, para que apoye su diagnóstico?</p>
+<p>R/:</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Labs/lab6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-51547737-2', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

@@ -1,45 +1,55 @@
 - file: intro
+
 - file: content/U1_description
   sections:
     - file: "content/Clase 01 - Introducción al Machine Learning"
     - file: "content/Clase 02 - Regresión lineal y regresión logística"
-    - file: "content/U1.03 - Como se disena un algoritmo de Machine Learning"
-    - file: "content/U1.04 - [LAB] - SUBMISSION PRACTICE"
+    - file: "content/Clase 03 - Funciones discriminantes Gausianas"
+- file: "content/U1_IntroLabs"
+  sections:
+    - file: "Labs/Intro/Intro"
+    - file: "Labs/lab1/lab1_parte1"
+    - file: "Labs/lab1/lab1_parte2"
 - file: content/U2_description
   sections:
-    - file: "content/U2.01 - Introduction to Artificial Neural Networks"
-    - file: "content/U2.02 - MLP with Keras"
-    - file: "content/U2.03 - Overfitting and regularization"
-    - file: "content/U2.05 - Network Architectures - Autoencoders"
-    - file: "content/U2.08 - Network Architectures - Multimodal information"
-    - file: "content/U2.10 - Network Architectures - Restricted Boltzman Machines"
-    - file: "content/U2.12 - Vanishing gradients"
-    - file: "content/U2.14 - Weights initialization"
+    - file: "content/Clase 04 - Modelos no Paramétricos"
+    - file: "Labs/lab2/lab2_parte1"
+    - file: "Labs/lab2/lab2_parte2"
 - file: content/U3_description
   sections:
-    - file: "content/U3.01 - Designing ML algorithms assisted by a symbolic computing library"
-    - file: "content/U3.02 - Tensorflow for symbolic computing and optimization"
-    - file: "content/U3.03 - Using tf.function"
-    - file: "content/U3.04 - [LAB] - TensorFlow Low Level API"
-    - file: "content/U3.05 - Batch Normalization"
+    - file: "content/Clase 05 - Métricas de error"
+    - file: "content/Clase 06 - Complejidad de modelos, sobreajuste y metodologías de validación"
+    - file: "content/Clase 07 - Regularización"
 - file: content/U4_description
   sections:
-    - file: "content/U4.01 - Convolutional Neural Networks"
-    - file: 'content/U4.02 - [LAB] - Implementing convolutions.ipynb'
-    - file: "content/U4.03 - Transfer learning"
-    - file: "content/U4.06 - Object Detection Tasks"
-    - file: "content/U4.08 - Transposed convolutions for image segmentation"
-    - file: "content/U4.09 - Image Segmentation"
+    - file: "content/Clase 08 - Modelos de Mezclas de Gausianas"
+    - file: 'content/Clase 09 - Unsupervised Learning'
+    - file: "Labs/lab3/lab3_parte1"
 - file: content/U5_description
   sections:
-    - file: "content/U5.01 - Recurrent Neural Networks"
-    - file: "content/U5.02 - Long Short Term Memory RNN"
-    - file: "content/U5.04 - Truncated BPTT"
-    - file: "content/U5.05 - Basic concepts of text processing"
-    - file: "content/U5.07 - Sequences generation using LSTM"
-    - file: "content/U5.08- Bidirectional RNNs - Attention Model.ipynb"
-    - file: "content/U5.10- Self-Attention - Transformer - BERT.ipynb"
-    - file: "content/U5.12 (CNN-LSTM arquitecture).ipynb"
+    - file: "content/Clase 10 - Árboles de Decisión, Voting, Bagging, Random Forest"
+    - file: "content/Clase 11 - Boosting, Stacking"
+    - file: "Labs/lab3/lab3_parte2"
+- file: content/U6_description
+  sections:
+    - file: "content/Clase 12 - Redes Neuronales Artificiales"
+    - file: "content/Clase 13 - Mapas Auto-Organizables"
+    - file: "content/Clase 14 - Redes Neuronales Recurrentes"
+    - file: "Labs/lab4/lab4_parte1"
+    - file: "Labs/lab4/lab4_parte2"
+- file: content/U7_description
+  sections:
+    - file: "content/Clase 15 - Máquinas de Véctores de Soporte"
+    - file: "Labs/lab5/lab5_parte1"
+    - file: "Labs/lab5/lab5_parte2"
+- file: content/U8_description
+  sections:
+    - file: "content/Clase 16 - Selección de Características"
+    - file: "content/Clase 17 - Lasso y redes elásticas"
+    - file: "content/Clase 18 - Análisis de Componentes Principales"
+    - file: "content/Clase 19 - Análisis Discriminante de Fisher"
+    - file: "Labs/lab6/lab6_parte1"
+    - file: "Labs/lab6/lab6_parte2"
 
 
 

@@ -1,0 +1,46 @@
+- file: intro
+- file: content/U1_description
+  sections:
+    - file: "content/Clase 01 - Introducción al Machine Learning"
+    - file: "content/Clase 02 - Regresión lineal y regresión logística"
+    - file: "content/U1.03 - Como se disena un algoritmo de Machine Learning"
+    - file: "content/U1.04 - [LAB] - SUBMISSION PRACTICE"
+- file: content/U2_description
+  sections:
+    - file: "content/U2.01 - Introduction to Artificial Neural Networks"
+    - file: "content/U2.02 - MLP with Keras"
+    - file: "content/U2.03 - Overfitting and regularization"
+    - file: "content/U2.05 - Network Architectures - Autoencoders"
+    - file: "content/U2.08 - Network Architectures - Multimodal information"
+    - file: "content/U2.10 - Network Architectures - Restricted Boltzman Machines"
+    - file: "content/U2.12 - Vanishing gradients"
+    - file: "content/U2.14 - Weights initialization"
+- file: content/U3_description
+  sections:
+    - file: "content/U3.01 - Designing ML algorithms assisted by a symbolic computing library"
+    - file: "content/U3.02 - Tensorflow for symbolic computing and optimization"
+    - file: "content/U3.03 - Using tf.function"
+    - file: "content/U3.04 - [LAB] - TensorFlow Low Level API"
+    - file: "content/U3.05 - Batch Normalization"
+- file: content/U4_description
+  sections:
+    - file: "content/U4.01 - Convolutional Neural Networks"
+    - file: 'content/U4.02 - [LAB] - Implementing convolutions.ipynb'
+    - file: "content/U4.03 - Transfer learning"
+    - file: "content/U4.06 - Object Detection Tasks"
+    - file: "content/U4.08 - Transposed convolutions for image segmentation"
+    - file: "content/U4.09 - Image Segmentation"
+- file: content/U5_description
+  sections:
+    - file: "content/U5.01 - Recurrent Neural Networks"
+    - file: "content/U5.02 - Long Short Term Memory RNN"
+    - file: "content/U5.04 - Truncated BPTT"
+    - file: "content/U5.05 - Basic concepts of text processing"
+    - file: "content/U5.07 - Sequences generation using LSTM"
+    - file: "content/U5.08- Bidirectional RNNs - Attention Model.ipynb"
+    - file: "content/U5.10- Self-Attention - Transformer - BERT.ipynb"
+    - file: "content/U5.12 (CNN-LSTM arquitecture).ipynb"
+
+
+
+
